@@ -1,34 +1,16 @@
 import React, { useState } from 'react';
-import './App.css';
+import LoginPage from './LoginPage';
 import NoteBoard from './NoteBoard';
-import Login from './LoginPage';
+import './App.css';
 
-function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-  const handleLogin = (password) => {
-    const correctPassword = '30112008';
-    if (password === correctPassword) {
-      setIsAuthenticated(true);
-    } else {
-      alert('Contraseña incorrecta');
-    }
-  };
+const App = () => {
+  const [loggedIn, setLoggedIn] = useState(false);
 
   return (
-    <div className="App">
-      <div className="App-overlay">
-        <header className="App-header">
-          <h1>Te Quiero Mucho Preciosa ❤️</h1>
-        </header>
-        {isAuthenticated ? (
-          <NoteBoard />
-        ) : (
-          <Login onLogin={handleLogin} />
-        )}
-      </div>
+    <div className="app">
+      {loggedIn ? <NoteBoard /> : <LoginPage onLogin={setLoggedIn} />}
     </div>
   );
-}
+};
 
 export default App;
