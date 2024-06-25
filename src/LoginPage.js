@@ -8,10 +8,10 @@ const LoginPage = ({ onLogin }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (username === 'user' && password === 'password') {
+    if (password === '30112008') {
       onLogin(true);
     } else {
-      setError('Invalid username or password');
+      setError('Invalid password');
     }
   };
 
